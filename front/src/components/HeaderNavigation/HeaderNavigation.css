@@ -1,0 +1,75 @@
+.headerNavigation {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    background-color: rgba(255,255,255,0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8%;
+}
+
+.headerNavigation-info-box {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-right: 5%;
+    width: auto;
+}
+
+.headerNavigation-info-box:hover {
+    cursor: pointer;
+}
+
+.headerNavigation-username{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10%;
+    font-size: 20px;
+    color: #8590a6;
+}
+
+.headerNavigation-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.headerNavigation-img {
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    width: auto;
+}
+.headerNavigation-img:hover {
+    cursor: pointer;
+}
+.headerNavigation-svg svg {
+    font-size: 50px;
+}
+.headerNavigation-mini-img-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerNavigation-mini-img1 {
+    max-width: 80%;
+    height: auto;
+}
+.headerNavigation-mini-img2 {
+    max-width: 30%;
+    height: auto;
+}
+@media screen and (max-width: 768px) {
+    /* 当设备宽度小于等于 768px 时，应用以下样式 */
+    .headerNavigation-info-box {
+        margin-left: 1%;
+    }
+    .headerNavigation {
+        padding-left: 0;
+    }
+    .headerNavigation-img {
+        margin-left: 0;
+    }
+}

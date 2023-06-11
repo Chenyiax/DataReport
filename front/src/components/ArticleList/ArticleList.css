@@ -1,0 +1,15 @@
+.ant-list .ant-list-item .ant-list-item-meta {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.article-list-box {
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.ant-list .ant-list-item .ant-list-item-meta:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.08);
+}

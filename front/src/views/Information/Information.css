@@ -1,0 +1,135 @@
+.info-box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-box-information {
+    height: 90vh;
+    width: 50%;
+    background-color: rgba(255,255,255,0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-box-name {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    font-size: 54px;
+    font-family: 楷体, serif;
+    width: 80%;
+}
+
+.info-line {
+    width: 80%;
+    min-width: 80%;
+    color: gray;
+    margin: 3vh;
+}
+
+
+.info-box-infoBox {
+    height: 5vh;
+    font-size: 28px;
+    font-family: 楷体, serif;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 80%;
+}
+
+.info-box-infoBox-in {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+}
+
+.info-changeButton {
+    margin-top: 10px;
+}
+
+.info-changeInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.info-changeInfo.ant-input {
+    width: 70%;
+}
+
+.info-buttonBox {
+    display: flex;
+    width: 30%;
+}
+
+.info-buttonBox button{
+     margin-left: 10px;
+ }
+
+.ant-upload-wrapper.ant-upload-picture-circle-wrapper {
+    width: 18%;
+}
+
+.info-headimg.ant-avatar {
+    width: 104px;
+    height: 104px;
+}
+
+.info-headimg svg {
+    font-size: 90px;
+}
+
+.smallNameBox {
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+.info-name {
+    margin-left: 10px;
+}
+
+.info-box-infoBox-name {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 80%;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.info-box-infoBox-name button {
+    margin-top: 25px;
+}
+
+.info-back-button-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 768px) {
+    .info-box-information {
+        width: 100%;
+        height: 100%;
+    }
+    .info-box-name {
+        font-size: 36px;
+    }
+    .info-box-infoBox {
+        font-size: 20px;
+    }
+    .info-headimg.ant-avatar {
+        width: 80px;
+        height: 80px;
+    }
+}

@@ -1,0 +1,27 @@
+/*整个布局的css*/
+.layout {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/*整个下半部分的css样式*/
+.site-layout {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/*侧边栏的css样式*/
+.ant-layout .ant-layout-sider {
+    background-color: rgba(255,255,255,0.95);
+    border-right: 1px solid rgba(128, 128, 128, 0.2);
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.content {
+    background-color: rgba(255,255,255,0.95);
+    overflow: auto;
+}
+
+.ant-layout .ant-layout-sider-light .ant-layout-sider-trigger {
+    background-color: rgba(0,0,0,0);
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+}

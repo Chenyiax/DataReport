@@ -1,0 +1,69 @@
+.BarCharts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.BarCharts-step {
+    margin-top: 2%;
+    width: 80%;
+}
+.BarCharts-Charts {
+    width: 90%;
+}
+
+.BarCharts-InputNumber {
+    width: 300px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+.BarCharts-control-box {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+}
+.BarCharts-InputNumber-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.BarCharts-InputNumber-box.ant-form {
+    width: 100%;
+}
+
+.BarCharts-InputTxt-box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.BarCharts-form-submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.BarCharts-form-submit-button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.BarCharts-form {
+    width: 80%;
+}
+
+.BarCharts-form-items {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.ant-form-item .ant-form-item-control-input-content {
+    display: flex;
+    align-items: center;
+}

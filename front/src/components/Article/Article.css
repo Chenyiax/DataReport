@@ -1,0 +1,23 @@
+.article {
+    height: 100%;
+}
+.quill {
+    height: 95%;
+}
+
+.article-btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.article-btn {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.article-modal-txt {
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+}

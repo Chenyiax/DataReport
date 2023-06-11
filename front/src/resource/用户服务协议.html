@@ -1,0 +1,612 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>用户服务协议</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='用户服务协议'><span>《用户服务协议》</span></h1><p><strong><span>本协议是您与服务、产品及网站本身等的所有者，就相关服务等事宜订立的契约。请您认真阅读并充分理解本服务协议，本协议构成对双方有约束力的法律文件。</span></strong></p><h3 id='一协议目的'><span>一、协议目的</span></h3><p><span>本协议中的“您”与“用户”指任何使用和/或访问本服务的个人。本协议及针对本服务发布的其它服务条款、规则或提示（以下合称为“本协议”）是我们为您提供本服务以供使用及访问所依据的条款。通过本协议，您将了解本公司向您提供本服务的方式、本服务所允许及禁止的活动、应对问题的措施及其他重要信息。请您仔细阅读本协议，特别是涉及免除或者限制责任的条款、法律适用和争议解决条款等以加粗形式提示的重要内容。</span></p><p><span>当您按照页面提示同意本协议或使用本服务，即视为您已与本公司达成具有法律约束力的合同，本公司将按照本协议约定履行相应的合同义务。若您不同意本协议，请勿使用本服务。</span></p><p><strong><span>若您对本协议存在任何疑问，您可通过“联系我们”章节中的联络信息联系我们。</span></strong></p><ul><li><p><span>您明确声明和保证并确认以下内容：</span></p><ol start='' ><li><span>您具备足够的法律权利或授权来签署和履行本协议；您对于本协议的签署和履行不会对您须履行的任何其他协议、安排造成冲突或导致违约。</span></li><li><span>并且您需要确认，若您使用本网站，您应当具备完全民事权利能力和完全民事行为能力，能够独立承担法律责任。用户违反本项条件，本公司可随时、全权决定拒绝向您提供服务，若因此给本公司或第三方造成损失，用户还须承担全部赔偿责任。如您为无民事行为能力人或为限制民事行为能力人，例如您未满18周岁，在您决定是否使用本服务前，请您与父母或其他监护人一起阅读本协议以确保他们明确了解本协议内容，在获得父母或其他监护人同意之前，请勿使用本服务，在父母或监护人的监护参与下才能使用本网站，否则本公司有权在法律允许范围内冻结、关闭或删除您的帐户。</span></li><li><span>您同意，授权本公司存储、使用、共享您提交至本公司数字平台的个人信息和其它信息，同意您的个人信息可以在本公司公司关联企业之间共享，也可以在为您提供服务的第三方物流公司、第三方商家店铺、本公司合作方或服务商之间使用。在此情况下，第三方服务提供商也会拥有您的部分或全部用户数据。您了解并确认，本公司第三方商家店铺、物流提供商、第三方合作方或服务提供商通常有其自身的隐私政策，且可能与本公司的隐私政策不同，本公司无需承担第三方对您隐私的保护责任。</span></li><li><span>您同意，在享用本公司各项服务的同时，您及您指定的收货人同意接收本公司或本公司第三方商家店铺提供的各类信息服务，这些信息所涉及的内容包括但不限于以文字、图片、照片、音视频形式表现的各类订单信息、宣传信息、促销信息、商业信息以及本公司合作伙伴的信息，该类信息的提供方式包括但不限于电子邮件、短信、电话、站内信、微信消息等。</span></li></ol></li></ul><h3 id='二服务内容及范围'><span>二、服务内容及范围</span></h3><ul><li><strong><span>创建帐户及账户使用。</span></strong></li></ul><p><span>您可以通过在线注册创建本公司帐户，一旦成功注册，您将得到一个用户名和密码，为保护您的帐户，请对您的帐户详细信息和密码、实名认证、手机绑定等网站服务时网站发送的校验码进行保密，因泄密造成的后果，由用户自行承担。您应对您的本公司帐户下发生的所有活动及行为负责。注册本公司帐户时，应自行向本公司提供真实、准确、完整、合法有效的用户信息，并且当您的个人信息发生变动时，应及时进行更新。如果您提供的个人信息不合法、不真实、不准确、不详尽，您须承担因此引起的相应责任及后果，并且本公司保留法律允许范围内独自决定关闭、删除用户帐户的权利。如果您代表一个实体（如您的企业或雇主）创建本公司帐户，则您声明您具有约束该实体遵守这些条款的法定权利。您不得将本公司帐户凭据转让给其他用户或实体。</span></p><p><span>且如果本公司有合理理由认为您的本公司帐户有遭到第三方欺诈性冒用（例如，帐户被入侵所致）的风险，则本公司可能会暂停您的帐户，直到您可以重新取回所有权。根据入侵的性质，我们可能需要禁止您访问部分或所有内容。</span></p><ul><li><strong><span>关闭您的帐户或中（终）止本公司账户项下的服务。</span></strong></li></ul><p><span>1）您可以出于任何原因随时取消特定的服务或关闭您的本公司帐户。当您要求我们关闭您的本公司帐户时，</span></p><p><span>2）如果您的本公司帐户已被关闭或服务已被取消（无论被您关闭还是被我们关闭），将会出现以下情形。</span><strong><span>首先，您使用本公司帐户及访问服务的权利将立即终止，您的与服务相关的软件的许可也将终止。其次，我们将会删除与您的本公司帐户关联的数据或您的内容，或者切断数据或您的内容与您和 本公司帐户间的关联关系（但法律要求我们进行保留，或者将其返还或转让给您或您指定的第三方的除外）。这样一来，您可能无法再访问任何服务（或您在这些服务上存储的内容）。您应制定定期备份计划，因为本公司无法对已关闭帐户进行关于您的内容或数据的检索。第三，您可能无法再访问您已购买的产品。如果您已取消了您的本公司帐户，并且没有其他可访问服务的帐户，则您的服务可能会被立即取消。</span></strong></p><p><span> </span></p><h3 id='三用户履约准则'><span>三、</span><strong><span>用户履约准则</span></strong></h3><p><strong><span>1. 用户使用本公司账户必须遵守国家法律法规，用户承诺，绝对不会通过本公司的任何服务发送或传播违反国家法律法规及不文明的信息，此类信息包括但不限于：</span></strong>
+<span>（1）反对宪法所确定的基本原则的；</span>
+<span>（2）危害国家安全、泄露国家秘密、颠覆国家政权、破坏国家统一、损害国家荣誉和利益的；</span>
+<span>（3）煽动民族仇恨、民族歧视，破坏民族团结的；</span>
+<span>（4）破坏国家宗教政策，宣扬邪教和封建迷信的；</span>
+<span>（5）散布谣言，扰乱社会秩序，破坏社会稳定的；</span>
+<span>（6）散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的</span>
+<span>（7）恐吓、侮辱、攻击、诽谤他人，侵害他人合法权益的；</span>
+<span>（8）利用本网站从事洗钱、窃取商业秘密、窃取个人信息等违法犯罪活动的；</span>
+<span>（9）发布任何侵犯他人著作权、商标权等知识产权及其他合法权利的；</span>
+<span>（10）含有法律、行政法规禁止的其他内容的。</span></p><p><strong><span>2.除本协议明确约定或适用法律允许以外，否则您同意且承诺不会进行以下任何活动：</span></strong></p><p><span>(a) 删除本服务内包含的任何版权、商标或其它专有通知；</span></p><p><span>(b) 复制或更改本服务的全部或部分内容，或允许本服务或其中任何部分与其他任何程序合并或合入其他任何程序；</span></p><p><span>(c) 未经授权访问或尝试访问或损害本服务或相关系统或网络的任何部分；</span></p><p><span>(d) 分解、解码或逆向开发本服务或其任一部分，或基于本服务或其任一部分创造衍生作品，或企图从事适用法律所禁止的类似活动；</span></p><p><span>(e) 分发、许可、租赁、出售、转售、转让、公开展示、公开表演、传输、播放、传播或以其他方式使用本服务；</span></p><p><span>(f) 未经本公司事先书面许可，以任何形式将本服务全部或部分内容（包括标的物及源代码）提交或以其他方式提供给任何人；</span></p><p><span>(g) 冒充他人、伪称或以其他方式虚报您与某人或某实体的关系；</span></p><p><span>(h) 出于非法目的，以任何不法形式，或违反本协议的方式使用本服务（或其任何部分），或实施任何欺诈或其他恶意行为，包括但不限于入侵本服务（或本服务链接的网址）或任何操作系统或向其植入恶意代码，包括病毒或有害数据；</span></p><p><span>(i) 访问和/或使用本服务时侵犯本公司或任何第三方的知识产权；</span></p><p><span>(j) 搜集本服务用户的信息，或使用自动化手段来访问本服务或本公司系统，或试图通过破译向运行本服务的服务器中传入任何内容或从中提取任何内容；</span></p><p><span>(k) 开发、支持或使用软件、设备、脚本或任何其他手段或进程（包括爬虫软件、浏览器插件或任何其他技术或人为作业）来攫取本服务或以其他方式从本服务中拷贝用户信息及其他数据；</span></p><p><span>(l) 未经本公司事先书面许可将本服务用于商业用途；</span></p><p><span>(m) 使用本服务从事任何违法商业交易，比如贩卖军火、毒品、非法物品、盗版软件或其他违禁品；</span></p><p><span>(n) 提供赌博信息或使用任何手段引诱他人赌博；</span></p><p><span>(o) 索要他人登录信息或访问他人帐号；</span></p><p><span>(p) 参与洗钱、套现或传销活动；</span></p><p><span>(q) 使用本服务时损害、禁用、削弱或危及本服务、本公司系统或其安全，或使其超负荷，干扰其他用户或任何其他方的电脑系统，入侵或未经授权访问本服务或本公司内容或数据；</span></p><p><span>(r) 试图违反本协议（或其中任何部分），或助推或怂恿此类行为。</span></p><p><strong><span>3.用户违反上述规定的，本公司有权视情节的严重采取警告、限期改正、暂停服务、取消订单、关闭帐号、永久禁止注册等措施，给本公司或第三方造成损失的，本公司有权采取一切合法的诉讼与非诉讼手段进行索赔；用户行为构成犯罪的，本公司有权通知和协助政府部门进行查处。</span></strong></p><p><strong><span>4.当您为产品及服务下订单时，请您仔细确认所购产品包括费用、服务时长、并发账号数量、收货人姓名、电话、详细地址等信息。收货人与您本人不一致的，收货人的行为和意思表示视为您的行为和意思表示，您应对收货人的行为及意思表示的法律后果承担连带责任。</span></strong></p><h3 id='四知识产权'><span>四、知识产权</span></h3><ul><li><strong><span>本公司的内容</span></strong></li></ul><p><span>除本协议明确约定或适用法律另有规定以外，本公司和/或本公司的许可方对根据本服务或经由本服务获得的所有信息，包括但不限于文本、视频和音频、图片、图标、应用、设计、软件、脚本、程序、版权、商标、商号、标志及其他资料与服务，以及包括前述内容的外观与体验（以下合称为“本公司内容”）保留所有权利。除非本协议另行规定，否则您对本服务的访问和/或使用并不构成本服务或其中内容的任何所有权或其他权利向您或其他任何人的转移。您不得通过任何方式更改、复制、提取、修订或增添本公司内容，也不得出售、拷贝、传播、许可或滥用本公司内容。</span></p><p><span>若您认为本服务或其任何部分侵犯了任何版权、商标、专利、商业机密或其他知识产权，或您对本服务存在其他疑问，请通过“联系我们”章节中的联络信息告知我们。</span></p><ul><li><strong><span>您的内容</span></strong><span> </span></li></ul><p><span>我们的许多服务允许您存储或共享您的内容，或者接收他人发送的材料。我们不会对您的内容主张所有权。对于您上传、发布及以其他方式传输至本服务或通过本服务传输的文本、文件、图片、照片或其他信息（以下合称为“您的内容”），您继续保留对您的内容的所有权；您对您的内容全权负责。</span></p><p><span>在与他人共享您的内容时，您了解他们可在全球范围内，出于与您在服务上提供内容一致的目的使用、保存、记录、复制、广播、传输、分享和显示您的内容，而不会为您提供任何补偿。如果您不希望他人拥有上述权利，请不要使用服务来共享您的内容。您声明并保证，在这些条款的有效期内，您拥有（并将一直拥有）您上传、存储到服务或通过服务共享的您的内容的所有必要权利，并且我们收集、使用和保留您的内容不会违反任何法律和他人的权利。本公司并不拥有、控制、验证、支付、认可您的内容，或者以其他方式对您的内容承担任何责任，并且，本公司不会对他人使用我们的服务上传、存储或共享的您的内容或材料承担任何责任。</span></p><ul><li><strong><span>软件许可。</span></strong></li></ul><p><span>任何被我们当作服务一部分为您提供的软件均受这些条款的约束，但附有单独的本公司许可协议的除外，根据你选取的产品及服务的类型，你提供购买产品及服务获得的许可权利将体现在：如《最终用户许可协议》</span></p><h3 id='五数据及隐私保护'><strong><span>五、数据及隐私保护</span></strong></h3><p><span>我们非常重视您的个人信息和隐私保护。您理解并同意，在您使用本服务的过程中，出于提供本服务所必需的目的或者基于您的同意，我们将根据《隐私政策》处理您的个人信息。为此，您需要仔细阅读单独明示的《隐私政策》，以了解我们处理个人信息的目的、方式，处理的个人信息种类、保存期限，用户权利行使方式和程序以及本公司为保护您的个人信息所采取的措施以及我们会通过何种方式使用您的数据以及我们处理您的数据时所依照的法律依据等信息。为了更好地向您提供本服务，保证您的交易安全，本公司会根据收集并处理您的个人信息。若处理活动已征得同意，则在法律允许的范围内，使用服务或同意这些条款，即表示您同意我们按照本公司各产品相关的隐私政策中的规定收集、使用和披露您的内容和数据。在某些情况下，我们会提供单独的通知，要求您按隐私政策所述给予同意。</span></p><p><strong><span>1. 本公司非常重视保护用户个人信息，凡涉及用户姓名、电话、详细地址、电子邮箱、帐号等个人信息的，本公司都将予以严格保密，但下列情况除外：</span></strong></p><p><span>（1）事先获得用户的明确授权；</span>
+<span>（2）法律法规或政府部门要求披露时；</span>
+<span>（3）为维护社会公众利益必须披露时；</span>
+<span>（4）为使本公司工作人员、物流服务商、第三方商家、供应商或商业伙伴能向本公司提供服务或代表本公司执行某一职能（包括但不限于物流配送、市场营销、市场研究、客户服务、抽奖活动，供应本公司目前或未来向用户提供的产品或服务）而必须披露时；</span>
+<span>（5）为维护本公司的合法利益而必须披露时。</span></p><p><strong><span>2. 您须知晓，尽管本公司已依照相关法律法规、强制性技术标准及规范，采取适当的并与网络服务相适应的措施，规划、设计和建立了用户数据系统处理流程，订立了用户数据管理制度，并落实有关数据管理责任。但本公司仍无法保证完全避免因黑客攻击、计算机病毒侵入或发作、第三方原因或其他原因造成的用户数据泄露、丢失、篡改、不当使用等数据安全/隐私侵犯事件。除非有关法律另行强制规定，您理解并同意，若不属本公司故意或明显过错造成的前述事件，不追究本公司因此类事件所造成的任何损害赔偿责任或违约责任。</span></strong></p><h3 id='六免责声明'><span>六、免责声明</span></h3><ul><li><strong><span>责任限制</span></strong></li></ul><p><span>您理解，在符合适用的法律法规的前提下，出于运营及改善本服务的目的（包括但不限于欺诈防范、风险评估、调查及客户支持），我们有权采取必要措施确保您遵守本协议及适用的法律，或法院、政令、行政机关或其他政府机关的命令或要求。</span></p><p><span>我们有权随时审视您的内容是否合适或是否符合本协议。若我们发现您提交的内容有违法或不良信息、违反了本协议或不符合公序良俗时，我们有权在不事先通知的情况下随时酌情拒绝和/或移除您的内容，并有权不予注册帐号。</span></p><p><span>如果本公司有合理理由认为您当前使用的本公司帐号属于以下情形之一的，本公司有权随时限制、冻结或终止您对本公司帐号的使用，且根据实际情况决定是否恢复您对本公司帐号的使用：</span></p><p><span>1、非通过本公司提供或明确许可的软件或服务获得的本公司帐号；</span></p><p><span>2、通过欺诈方式获取的本公司帐号；</span></p><p><span>3、通过恶意注册获取的本公司帐号；</span></p><p><span>4、使用非您本人真实意思表示注册的本公司帐号；</span></p><p><span>5、以赠与、借用、租用、转让、售卖或者以其他方式许可他人使用您本人的本公司帐号；</span></p><p><span>6、为实现非法目的而注册、获取的本公司帐号；</span></p><p><span>如果您通过上述方式获取和使用本公司帐号，您应自行承担相关法律责任和损失（包括但不限于通信中断，虚拟财产及相关数据、增值服务、产品或服务等的清空或无法使用等），同时本公司保留追究您法律责任的权利。</span></p><ul><li><strong><span>免责声明</span></strong></li></ul><p><span>本服务仅供您个人使用，不得提供给任何第三方使用。您同意，对未经授权使用本服务导致的任何损失，本公司及本公司关联公司、负责人、董事、员工、承包商、代理、第三方支付服务提供商、合作伙伴、许可方及经销商（以下合称为“本公司方”）不承担任何责任。</span></p><p><span>用户明确同意信息服务的使用由用户个人承担风险。除非另有明确的书面说明,本公司不对本网站上的信息、内容、产品（包括软件）或服务作任何形式的、明示或默示的声明或担保（法律另有规定的以外）。本公司不担保服务一定能满足用户的要求，也不担保服务不会受中断，对服务的及时性、安全性、出错都不作任何担保。本服务在使用过程中可能会因不可控制的原因在未知时段内中断、延迟或受到干扰。您同意，对前述中断、延迟、干扰或类似故障导致的或与之相关的任何申索，本公司方不承担任何责任。</span></p><p><span>在适用法律允许的最大范围内，对于您或其他任何人因下列原因无法访问或使用本服务导致的任何损害，本公司方不承担任何责任：</span></p><p><span>(a) 本公司对系统或软（硬）件进行维护或升级导致本服务中止或终止；</span></p><p><span>(b) 非本公司拥有或控制的系统或网络通讯延迟或出现故障；</span></p><p><span>(c) 因台风、地震、停电、洪水、战争、恐怖袭击等不可抗力因素导致的服务中断；</span></p><p><span>(d) 由于虚拟数字商品和增值服务提供商或者运营方停止运营而导致的服务停止；</span></p><p><span>(e) 由于第三方支付渠道故障导到本服务不能正常运行；</span></p><p><span>(f) 由于黑客攻击或类似的安全影响导致错误或中断；</span></p><p><span>(g) 超越本公司合理控制的其他原因。</span></p><p><span>本服务按照“现状”和“现有”提供，且不做任何形式的承诺、保证或担保。在适用的法律允许的最大范围内，本公司方未就以下方面承认任何明示或默示的保证、条件或其他协定，也未就此作出任何担保、承诺、声明或保证：</span></p><p><span>(a) 根据本服务或经由本服务获得的任何内容的完整性、准确性、可靠性或及时性；</span></p><p><span>(b) 本服务或承载本服务的服务器是否存在缺陷、错误、病毒、漏洞或其他有害元素；</span></p><p><span>(c) 本服务运营或功能方面的缺陷是否会得到修正；</span></p><p><span>(d) 与本服务特定功能相关的保证，或您在使用或访问本服务时获得的任何信息是否可靠、优质或准确；</span></p><p><span>(e) 本服务是否安全无误；</span></p><p><span>(f) 本服务是否可靠、优质、准确、可用或能够满足您的需求、能够产生特定的结果或实现特定的结果或成果。因全部或部分依赖、使用或诠释本服务，或因您（或其他任何人）访问和/或使用通过本服务获得的信息而造成的任何损失或损害，本公司方不承担任何责任。</span></p><p><span>部分国家的法律不允许合同中排除或限制某些保证、担保或责任。若这些法律适用于您，则前述排除或限制条款的全部或部分可能不适用。本协议中的任何内容均不影响您作为消费者应该享有的法定权利。</span></p><h3 id='七本协议条款修订及更新'><strong><span>七、本协议条款修订及更新</span></strong></h3><p><span>根据国家法律法规变化及网站运营需要，以及本公司一直在更新、修订和改善本服务及协议。本公司可能为本服务增删功能或性能，设置新的限制或临时中止或永久停止提供某项服务。因此本公司有权对本协议条款不时地进行修改，修改后的协议一旦被张贴在网站，新协议立即生效并代替原来的协议。用户有义务不时关注并阅读最新版的协议及网站公告。更新后的协议条款一旦公布即代替原来的协议条款，如果您不接受修改后的条款，请立即停止使用本服务，如您继续使用本公司服务，即视为完全同意更新后的协议。并且，如果您是家长或监护人，请帮助您的未成年子女关闭他或她的本公司帐户。如果本协议中任何一条被视为废止、无效或因任何理由不可执行，该条应视为可分的且并不影响任何其余条款的有效性和可执行性。</span></p><h3 id='八联系我们'><span>八、</span><strong><span>联系我们</span></strong></h3><p><span>如您对本协议有任何疑问，请联系</span><a href='mailto:chenyiax@outlook.com' target='_blank' class='url'>chenyiax@outlook.com</a><span>。</span></p></div></div>
+</body>
+</html>
