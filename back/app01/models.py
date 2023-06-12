@@ -20,7 +20,6 @@ class article(models.Model):
     type = models.IntegerField(default=0)
 
 class chart(models.Model):
-    user = models.ForeignKey(user_info, on_delete=models.CASCADE)
     phone = models.CharField(max_length=20)
     date = models.CharField(max_length=20)
     value = models.TextField(default='')
